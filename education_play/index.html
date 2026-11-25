@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlay - Belajar Interaktif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Toggle Dark Mode -->
+        <header>
+            <div class="logo">🚀 EduPlay</div>
+            <button id="theme-toggle" class="btn-icon" title="Ganti Tema">🌙</button>
+        </header>
+
+        <!-- Layar 1: Pilih Topik -->
+        <section id="home-screen" class="screen active">
+            <h1>Pilih Topik Belajar</h1>
+            <p class="subtitle">Belajar konsep singkat dan uji pemahamanmu lewat kuis interaktif!</p>
+            <div class="topic-grid">
+                <div class="topic-card" onclick="selectTopic('sains')">
+                    <span class="topic-icon">🪐</span>
+                    <h3>Sains & Tata Surya</h3>
+                    <p>Mengenal planet dan fenomena luar angkasa secara visual.</p>
+                </div>
+                <div class="topic-card" onclick="selectTopic('budaya')">
+                    <span class="topic-icon">🏛️</span>
+                    <h3>Sejarah & Budaya Lokal</h3>
+                    <p>Eksplorasi warisan budaya dan filosofi Nusantara.</p>
+                </div>
+                <div class="topic-card" onclick="selectTopic('matematika')">
+                    <span class="topic-icon">🔢</span>
+                    <h3>Matematika & Logika</h3>
+                    <p>Asah kemampuan berhitung dan logika dasar dengan cepat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layar 2: Micro-Learning / Materi Singkat -->
+        <section id="lesson-screen" class="screen">
+            <div class="badge" id="lesson-badge">Topik</div>
+            <h2 id="lesson-title">Judul Materi</h2>
+            <div class="visual-box" id="lesson-visual">🪐</div>
+            <p id="lesson-content" class="lesson-text">Isi materi singkat...</p>
+            <div class="action-buttons">
+                <button class="btn-secondary" onclick="goHome()">Kembali</button>
+                <button class="btn-primary" onclick="startQuiz()">Mulai Kuis ⚡</button>
+            </div>
+        </section>
+
+        <!-- Layar 3: Kuis Interaktif -->
+        <section id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <span id="question-counter">Soal 1/3</span>
+                <span class="score-badge">Skor: <b id="current-score">0</b></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <h2 id="question-text">Pertanyaan akan muncul di sini?</h2>
+            <div id="options-container" class="options-list">
+                <!-- Pilihan jawaban di-generate lewat JS -->
+            </div>
+            <button id="next-btn" class="btn-primary hidden" onclick="nextQuestion()">Lanjut ➔</button>
+        </section>
+
+        <!-- Layar 4: Hasil & Evaluasi -->
+        <section id="result-screen" class="screen">
+            <div class="result-icon" id="result-emoji">🏆</div>
+            <h2>Kuis Selesai!</h2>
+            <p id="result-message">Kerja bagus!</p>
+            <div class="final-score-box">
+                <span>Skor Akhir Kamu</span>
+                <h1 id="final-score">100</h1>
+            </div>
+            <button class="btn-primary" onclick="goHome()">Pilih Topik Lain</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
